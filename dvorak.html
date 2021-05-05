@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dvorak</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+         .key {
+             font-family: monospace;
+             font-size: 20px;
+             display: block;
+         }
+         td {
+             width: 50px;
+             border: 1px solid black;
+             text-align: center;
+         }
+         .divid {
+             border: none;
+             width: 15px;
+         }
+         .control {
+             background-color: #D00;
+             color: #FFF;
+         }
+         p {
+             max-width: 50em;
+         }
+         body {
+             background-color: #EEE;
+             color: #000;
+         }
+         a, a:visited {
+             color: blue;
+         }
+         a:hover {
+             color: #D00;
+         }
+        </style>
+    </head>
+    <body>
+        <h1>Dvorak</h1>
+        <p>
+            I use the Dvorak keyboard layout on an ortholinear split keyboard,
+            specifically the keeb.io Iris rev 4.
+            This is what the alphabetic area of my &apos;board looks like:
+        </p>
+        <table>
+            <tr>
+                <td><span class="key">"</span></td>
+                <td><span class="key">,</span></td>
+                <td><span class="key">.</span></td>
+                <td><span class="key">P</span></td>
+                <td><span class="key">Y</span></td>
+                <td class="divid"></td>
+                <td><span class="key">F</span></td>
+                <td><span class="key">G</span></td>
+                <td><span class="key">C</span></td>
+                <td><span class="key">R</span></td>
+                <td><span class="key">L</span></td>
+            </tr>
+            <tr>
+                <td><span class="key">A</span></td>
+                <td><span class="key">O</span></td>
+                <td><span class="key">E</span></td>
+                <td><span class="key">U</span></td>
+                <td><span class="key">I</span></td>
+                <td class="divid">➰</td>
+                <td><span class="key">D</span></td>
+                <td><span class="key">H</span></td>
+                <td><span class="key">T</span></td>
+                <td><span class="key">N</span></td>
+                <td><span class="key">S</span></td>
+            </tr>
+            <tr>
+                <td><span class="key">:</span></td>
+                <td><span class="key">Q</span></td>
+                <td><span class="key">J</span></td>
+                <td><span class="key">K</span></td>
+                <td><span class="key">X</span></td>
+                <td class="divid"></td>
+                <td><span class="key">B</span></td>
+                <td><span class="key">M</span></td>
+                <td><span class="key">W</span></td>
+                <td><span class="key">V</span></td>
+                <td><span class="key">Z</span></td>
+            </tr>
+        </table>
+        <p>
+            Emacsen use a goodly portion of this. Here's roughly what
+            I expect the keys to do while holding CTRL - standard
+            Emacs with a little tweaking:
+        </p>
+        <table>
+            <tr>
+                <td><span class="key">"</span></td>
+                <td><span class="key">,</span></td>
+                <td><span class="key">.</span></td>
+                <td><span class="key">P</span>Previous line</td>
+                <td><span class="key">Y</span>Yank (paste)</td>
+                <td class="divid"></td>
+                <td><span class="key">F</span>Forward char</td>
+                <td><span class="key">G</span>Cancel</td>
+                <td><span class="key">C</span>(Mode specific)</td>
+                <td><span class="key">R</span>Search backward</td>
+                <td><span class="key">L</span>Center line</td>
+            </tr>
+            <tr>
+                <td><span class="key">A</span>Beg of line</td>
+                <td><span class="key">O</span>Open line</td>
+                <td><span class="key">E</span>End of line</td>
+                <td><span class="key">U</span>Kill to bol</td>
+                <td><span class="key">I</span>Tab</td>
+                <td class="divid">➰</td>
+                <td><span class="key">D</span>Delete char</td>
+                <td><span class="key">H</span>Help</td>
+                <td><span class="key">T</span>Transpose chars</td>
+                <td><span class="key">N</span>Next line</td>
+                <td><span class="key">S</span>Search forward</td>
+            </tr>
+            <tr>
+                <td><span class="key">:</span></td>
+                <td><span class="key">Q</span>Insert raw</td>
+                <td><span class="key">J</span>Newline</td>
+                <td><span class="key">K</span>Kill to eol</td>
+                <td><span class="key">X</span>(Prefix)</td>
+                <td class="divid"></td>
+                <td><span class="key">B</span>Backward char</td>
+                <td><span class="key">M</span>Newline</td>
+                <td><span class="key">W</span>Kill (cut)</td>
+                <td><span class="key">V</span>Pg down</td>
+                <td><span class="key">Z</span>Pg up</td>
+            </tr>
+        </table>
+        <p>
+            A couple of commands are off the alphas or use meta (alt) instead:
+        </p>
+        <ul>
+            <li>C-@ (control-space) - Set mark (for copying/cutting)</li>
+            <li>C-_ (control-forwardSlash) - Undo</li>
+            <li>M-w - Copy</li>
+            <li>M-v - Pg up</li>
+            <li>M-f &amp; M-b - forward and backward word</li>
+            <li>M-n &amp; M-p - next and previous paragraph</li>
+            <li>M-t - transpose chars</li>
+            <li>M-&lt; &amp; M-&gt; - beg and end of buffer</li>
+        </ul>
+        <p>
+            Emacs keys make sense, in the same way that English
+            pronunciation makes sense - it does, but the logic is
+            usually unclear. Some are mnemonic (P, N, F, B, S, D, O),
+            some are due to legacy (I, J, L, and M are all ASCII
+            control characters) and the meta binding plays on logic,
+            but many are just chaotic and weird. With Emacs bindings,
+            you map your control key to a sensible position and then
+            just learn them.
+        </p>
+        <p>
+            Other bindings, <a href="https://sfwriter.com/wordstar-command-summary.pdf">like</a> <a href="https://www.sfwriter.com/wordstar.htm">WordStar</a> and to a lesser extent <a href="http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html">Vi</a>,
+            are based not on mnemonics or legacy but on keyboard
+            position. Keys that are used a lot are on the homerow or
+            nearby, whereas keys used less are in the more awkward
+            positions.  Vi has the infamous HJKL, which it can use for
+            movement keys as it does not use control keys (otherwise, C-j, C-l and maybe
+            C-h would be problematic). However, when using these on a Dvorak
+            keyboard <a href="https://boredzo.org/vi_tutorial/">the logic breaks down</a>.
+        </p>
+        <p>
+            <a href="https://github.com/blinkkin/aoeui">aoeui</a> is an experimental editor to translate this idea to Dvorak.
+            It uses Meta (Alt) as a modifier to avoid the problem of legacy
+            ascii control characters. This frees up the most problematic of
+            these, C-m, which is still what the return key outputs, and also
+            allows the usage of more unusual bindings like M-&quot;. The layout
+            looks like this:
+        </p>
+        <table>
+            <tr>
+                <td><span class="key">"</span>goto tag</td>
+                <td><span class="key">,</span>fold</td>
+                <td><span class="key">.</span>unfold</td>
+                <td><span class="key">P</span>Next window</td>
+                <td><span class="key">Y</span>New window</td>
+                <td class="divid"></td>
+                <td><span class="key">F</span>Copy</td>
+                <td><span class="key">G</span>Back Line</td>
+                <td><span class="key">C</span>Fore Line</td>
+                <td><span class="key">R</span>Back Screen</td>
+                <td><span class="key">L</span>Fore Screen</td>
+            </tr>
+            <tr>
+                <td><span class="key">A</span></td>
+                <td><span class="key">O</span>Macro</td>
+                <td><span class="key">E</span>Shell</td>
+                <td><span class="key">U</span>Undo</td>
+                <td><span class="key">I</span></td>
+                <td class="divid">➰</td>
+                <td><span class="key">D</span>Cut</td>
+                <td><span class="key">H</span>Back Char</td>
+                <td><span class="key">T</span>Fore Char</td>
+                <td><span class="key">N</span>Back Word</td>
+                <td><span class="key">S</span>Fore Word</td>
+            </tr>
+            <tr>
+                <td><span class="key">:</span>New</td>
+                <td><span class="key">Q</span>Suspend or quit</td>
+                <td><span class="key">J</span></td>
+                <td><span class="key">K</span>Save</td>
+                <td><span class="key">X</span>Visit File</td>
+                <td class="divid"></td>
+                <td><span class="key">B</span>Paste</td>
+                <td><span class="key">M</span></td>
+                <td><span class="key">W</span>New view in window</td>
+                <td><span class="key">V</span>Select</td>
+                <td><span class="key">Z</span>Recenter</td>
+            </tr>
+        </table>
+        <p>
+            This is really cool! Unfortunately the editor is not under
+            active development; and switching to new bindings on Emacs
+            is basically impossible, so it's not like I can try them
+            there.
+        </p>
+        <p>
+            I thought of <a href="https://github.com/japanoise/aoeui">adopting the editor as a new maintainer</a>, or
+            using the bindings in a new editor (like a fork of emsys
+            or gomacs). However, the more I looked at it, the more I
+            wanted to tweak things with ideas from WordStar. So a new,
+            future project was born: a terminal word processor, using
+            an optimised Dvorak layout!
+        </p>
+        <p>
+            Here's the WIP for this new layout:
+        </p>
+
+        <table>
+            <tr>
+                <td><span class="key">"</span></td>
+                <td><span class="key">,</span></td>
+                <td><span class="key">.</span></td>
+                <td><span class="key">P</span></td>
+                <td><span class="key">Y</span></td>
+                <td class="divid"></td>
+                <td><span class="key">F</span></td>
+                <td><span class="key">G</span></td>
+                <td><span class="key">C</span>Scroll up</td>
+                <td><span class="key">R</span>Prev line</td>
+                <td><span class="key">L</span>Page up</td>
+            </tr>
+            <tr>
+                <td><span class="key">A</span></td>
+                <td><span class="key">O</span></td>
+                <td><span class="key">E</span></td>
+                <td><span class="key">U</span></td>
+                <td class="control"><span class="key">I</span></td>
+                <td class="divid">➰</td>
+                <td><span class="key">D</span>Back Word</td>
+                <td><span class="key">H</span>Back Word</td>
+                <td><span class="key">T</span>Back Char</td>
+                <td><span class="key">N</span>Fore Char</td>
+                <td><span class="key">S</span>Fore Word</td>
+            </tr>
+            <tr>
+                <td><span class="key">:</span></td>
+                <td><span class="key">Q</span></td>
+                <td><span class="key">J</span></td>
+                <td><span class="key">K</span></td>
+                <td><span class="key">X</span></td>
+                <td class="divid"></td>
+                <td><span class="key">B</span></td>
+                <td class="control"><span class="key">M</span></td>
+                <td><span class="key">W</span>Scroll down</td>
+                <td><span class="key">V</span>Next line</td>
+                <td><span class="key">Z</span>Page down</td>
+            </tr>
+        </table>
+    </body>
+</html>
